@@ -1,0 +1,12 @@
+classic_models_dwh:
+  target: prod
+  outputs:
+    prod:
+      type: vertica
+      host: "{{ env_var('DBT_HOST', 'localhost') }}"
+      port: {{ env_var('DBT_PORT', 5433) | int }}
+      username: "{{ env_var('DBT_USER', 'dbadmin') }}"
+      password: "{{ env_var('DBT_PASSWORD', '') }}"
+      database: "{{ env_var('DBT_DATABASE', 'docker') }}"
+      schema: "{{ env_var('DBT_SCHEMA', 'DWH') }}"
+      threads: 1

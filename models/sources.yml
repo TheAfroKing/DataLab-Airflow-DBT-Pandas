@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw 
+    schema: raw 
+    tables:
+      - name: orders
+      - name: orderdetails
+      - name: customers
+      - name: employees
+      - name: offices
+      - name: products
+      - name: productlines
+      - name: payments

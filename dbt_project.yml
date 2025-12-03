@@ -1,0 +1,9 @@
+name: 'classic_models_dwh'
+version: '1.0.0'
+config-version: 2
+profile: 'classic_models_dwh'
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+macro-paths: ["macros"]

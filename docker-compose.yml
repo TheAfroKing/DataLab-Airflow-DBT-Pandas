@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: airflow_mysql_source
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: raw
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql_init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  vertica:
+    image: vertica/vertica-ce:latest
+    container_name: airflow_vertica_dwh
+    ports:
+      - "5433:5433"
+      - "5444:5444"
+    # Vertica Community Edition doesn't require extensive env vars for basic startup,
+    # but it takes a while to be ready. Default user is 'dbadmin' with no password.
