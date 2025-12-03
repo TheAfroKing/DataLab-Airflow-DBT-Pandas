@@ -1,6 +1,8 @@
 # Classic Models ELT with Airflow and dbt
 
 Este repositorio contiene un pipeline ELT completo que extrae datos de una base de datos MySQL, los carga en un Data Warehouse (MySQL o Vertica) y los transforma utilizando dbt. Todo orquestado por Apache Airflow.
+## Arquitectura
+![Diagrama de arquitectura](https://github.com/TheAfroKing/Airflow-DBT-DataLab/blob/main/Arquitecture.png)
 
 ## Requisitos Previos
 
